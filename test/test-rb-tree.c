@@ -28,7 +28,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "rb-tree.h"
 #include "compare-int.h"
 
-#define NUM_TEST_VALUES 1000
+#define NUM_TEST_VALUES 100
 
 int test_array[NUM_TEST_VALUES];
 
@@ -300,16 +300,14 @@ void test_rb_tree_remove(void)
 	 * randomish fashion from all over the tree. */
 
 	for (x=0; x<10; ++x) {
-		for (y=0; y<10; ++y) {
-			for (z=0; z<10; ++z) {
-				value = z * 100 + (9 - y) * 10 + x;
+	  for (z=0; z<10; ++z) {
+				value = z * 10 + x;
 				assert(rb_tree_remove(tree, &value) != 0);
 				validate_tree(tree);
 				expected_entries -= 1;
 				assert(rb_tree_num_entries(tree)
 				       == expected_entries);
-			}
-		}
+	  }
 	}
 
 	/* All entries removed, should be empty now */
@@ -365,8 +363,8 @@ static UnitTestFunction tests[] = {
 	test_rb_tree_child,
 	test_rb_tree_insert_lookup,
 	test_rb_tree_lookup,
-	/*test_rb_tree_remove,*/
-	/*test_rb_tree_to_array,*/
+	/* test_rb_tree_remove, */
+	/* test_rb_tree_to_array, */
 	test_out_of_memory,
 	NULL
 };

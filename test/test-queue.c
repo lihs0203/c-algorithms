@@ -38,7 +38,7 @@ Queue *generate_queue(void)
 
 	/* Add some values */
 
-	for (i=0; i<1000; ++i) {
+	for (i=0; i<100; ++i) {
 		queue_push_head(queue, &variable1);
 		queue_push_head(queue, &variable2);
 		queue_push_head(queue, &variable3);
@@ -65,7 +65,7 @@ void test_queue_new_free(void)
 
 	queue = queue_new();
 
-	for (i=0; i<1000; ++i) {
+	for (i=0; i<100; ++i) {
 		queue_push_head(queue, &variable1);
 	}
 
@@ -87,7 +87,7 @@ void test_queue_push_head(void)
 
 	/* Add some values */
 
-	for (i=0; i<1000; ++i) {
+	for (i=0; i<100; ++i) {
 		queue_push_head(queue, &variable1);
 		queue_push_head(queue, &variable2);
 		queue_push_head(queue, &variable3);
@@ -192,7 +192,7 @@ void test_queue_push_tail(void)
 
 	/* Add some values */
 
-	for (i=0; i<1000; ++i) {
+	for (i=0; i<100; ++i) {
 		queue_push_tail(queue, &variable1);
 		queue_push_tail(queue, &variable2);
 		queue_push_tail(queue, &variable3);
