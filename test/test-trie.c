@@ -28,7 +28,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 
 #include "trie.h"
 
-#define NUM_TEST_VALUES 10000
+#define NUM_TEST_VALUES 10
 
 int test_array[NUM_TEST_VALUES];
 char test_strings[NUM_TEST_VALUES][10];
@@ -209,11 +209,11 @@ void test_trie_replace(void)
 	/* Test replacing values */
 
 	val = malloc(sizeof(int));
-	*val = 999;
-	assert(trie_insert(trie, "999", val) != 0);
+	*val = 9;
+	assert(trie_insert(trie, "9", val) != 0);
 	assert(trie_num_entries(trie) == NUM_TEST_VALUES);
 
-	assert(trie_lookup(trie, "999") == val);
+	assert(trie_lookup(trie, "9") == val);
 	free(val);
 	trie_free(trie);
 }
@@ -237,7 +237,7 @@ void test_trie_insert_empty(void)
 	trie_free(trie);
 }
 
-#define LONG_STRING_LEN 4096
+#define LONG_STRING_LEN 40
 static void test_trie_free_long(void)
 {
 	char *long_string;

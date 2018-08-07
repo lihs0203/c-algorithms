@@ -27,7 +27,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "binary-heap.h"
 #include "compare-int.h"
 
-#define NUM_TEST_VALUES 10000
+#define NUM_TEST_VALUES 1000
 
 int test_array[NUM_TEST_VALUES];
 
