@@ -109,6 +109,8 @@ int arraylist_insert(ArrayList *arraylist, unsigned int index,
 
 	/* Increase the size if necessary */
 
+	/* a correct condition should be: */
+	//if (arraylist->length + 1 >= arraylist->_alloced) {
 	if (arraylist->length + 1 > arraylist->_alloced) {
 		if (!arraylist_enlarge(arraylist)) {
 			return 0;

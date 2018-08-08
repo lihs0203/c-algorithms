@@ -118,6 +118,8 @@ void test_arraylist_append(void)
 
 	/* Test low memory scenario */
 
+	//  a correct one should be:
+	// arraylist = arraylist_new(101);
 	arraylist = arraylist_new(100);
 
 	alloc_test_set_limit(0);
@@ -171,7 +173,8 @@ void test_arraylist_prepend(void)
 	arraylist_free(arraylist);
 
 	/* Test low memory scenario */
-
+	//  a correct one should be:
+	// arraylist = arraylist_new(101);
 	arraylist = arraylist_new(100);
 
 	alloc_test_set_limit(0);
@@ -430,16 +433,16 @@ void test_arraylist_sort(void)
 }
 
 static UnitTestFunction tests[] = {
-	test_arraylist_new_free,
-	test_arraylist_append,
-	test_arraylist_prepend,
-	test_arraylist_insert,
-	test_arraylist_remove,
-	test_arraylist_remove_range,
-	test_arraylist_index_of,
-	test_arraylist_clear,
-	test_arraylist_sort,
-	NULL
+  test_arraylist_new_free,
+  test_arraylist_append,
+  test_arraylist_prepend,
+  test_arraylist_insert,
+  test_arraylist_remove,
+  test_arraylist_remove_range,
+  test_arraylist_index_of,
+  test_arraylist_clear,
+  test_arraylist_sort,
+  NULL
 };
 
 int main(int argc, char *argv[])
