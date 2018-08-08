@@ -110,7 +110,7 @@ void test_arraylist_append(void)
 
 	/* Test appending many entries */
 
-	for (i=0; i<10000; ++i) {
+	for (i=0; i<1000; ++i) {
 		assert(arraylist_append(arraylist, NULL) != 0);
 	}
 
@@ -164,7 +164,7 @@ void test_arraylist_prepend(void)
 
 	/* Test prepending many entries */
 
-	for (i=0; i<10000; ++i) {
+	for (i=0; i<1000; ++i) {
 		assert(arraylist_prepend(arraylist, NULL) != 0);
 	}
 
@@ -245,7 +245,7 @@ void test_arraylist_insert(void)
 
 	/* Test inserting many entries */
 
-	for (i=0; i<10000; ++i) {
+	for (i=0; i<1000; ++i) {
 		arraylist_insert(arraylist, 10, &variable1);
 	}
 
