@@ -23,3 +23,6 @@ stamp-h1
 *.lo
 *.o
 *.pc
+*.log
+*.trs
+*~
