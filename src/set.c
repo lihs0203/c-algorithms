@@ -245,6 +245,10 @@ int set_insert(Set *set, SetValue data)
 	/* Use the hash of the data to determine an index to insert into the
 	 * table at. */
 
+	/* HSL: here the analysis cannot continue anymore because of this
+         * arithmatic operation on pointer values. A relation predicate might
+	 * help here */
+
 	index = set->hash_func(data) % set->table_size;
 
 	/* Walk along this chain and attempt to determine if this data has

@@ -110,7 +110,7 @@ void test_arraylist_append(void)
 
 	/* Test appending many entries */
 
-	for (i=0; i<1000; ++i) {
+	for (i=0; i<100; ++i) {
 		assert(arraylist_append(arraylist, NULL) != 0);
 	}
 
@@ -433,22 +433,22 @@ void test_arraylist_sort(void)
 }
 
 static UnitTestFunction tests[] = {
-  test_arraylist_new_free,
+  //  test_arraylist_new_free,
   test_arraylist_append,
-  test_arraylist_prepend,
-  test_arraylist_insert,
-  test_arraylist_remove,
-  test_arraylist_remove_range,
-  test_arraylist_index_of,
-  test_arraylist_clear,
-  test_arraylist_sort,
+  //test_arraylist_prepend,
+  //test_arraylist_insert,
+  //test_arraylist_remove,
+  //test_arraylist_remove_range,
+  //test_arraylist_index_of,
+  //test_arraylist_clear,
+  //test_arraylist_sort,
   NULL
 };
 
 int main(int argc, char *argv[])
 {
-	run_tests(tests);
+  run_tests(tests);
 
-	return 0;
+  return 0;
 }
 

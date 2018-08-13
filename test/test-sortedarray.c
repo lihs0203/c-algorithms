@@ -218,11 +218,11 @@ void test_sortedarray_get(void) {
 static UnitTestFunction tests[] = {
 	test_sortedarray_new_free,
 	test_sortedarray_insert,
-	test_sortedarray_remove,
-	test_sortedarray_remove_range,
-	test_sortedarray_index_of,
-	test_sortedarray_index_of_equ_key,
-	test_sortedarray_get,
+	/* test_sortedarray_remove, */
+	/* test_sortedarray_remove_range, */
+	/* test_sortedarray_index_of, */
+	/* test_sortedarray_index_of_equ_key, */
+	/* test_sortedarray_get, */
 	NULL   
 };
 

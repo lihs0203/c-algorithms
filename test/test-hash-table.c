@@ -32,7 +32,7 @@ CONNECTION WITH THE USE OR PERFORMANCE OF THIS SOFTWARE.
 #include "hash-string.h"
 #include "compare-string.h"
 
-#define NUM_TEST_VALUES 10000
+#define NUM_TEST_VALUES 100
 
 int value1 = 1, value2 = 2, value3 = 3, value4 = 4;
 int allocated_keys = 0;
@@ -154,7 +154,7 @@ void test_hash_table_remove(void)
 	hash_table = generate_hash_table();
 
 	assert(hash_table_num_entries(hash_table) == NUM_TEST_VALUES);
-	sprintf(buf, "%i", 5000);
+	sprintf(buf, "%i", 50);
 	assert(hash_table_lookup(hash_table, buf) != NULL);
 
 	/* Remove an entry */
@@ -163,7 +163,7 @@ void test_hash_table_remove(void)
 
 	/* Check entry counter */
 
-	assert(hash_table_num_entries(hash_table) == 9999);
+	assert(hash_table_num_entries(hash_table) == 99);
 
 	/* Check that NULL is returned now */
 
@@ -174,7 +174,7 @@ void test_hash_table_remove(void)
 	sprintf(buf, "%i", -1);
 	hash_table_remove(hash_table, buf);
 
-	assert(hash_table_num_entries(hash_table) == 9999);
+	assert(hash_table_num_entries(hash_table) == 99);
 
 	hash_table_free(hash_table);
 }
@@ -252,7 +252,7 @@ void test_hash_table_iterating_remove(void)
 
 		/* Remove every hundredth entry */
 
-		if ((atoi(val) % 100) == 0) {
+		if ((atoi(val) % 10) == 0) {
 			hash_table_remove(hash_table, val);
 			++removed;
 		}
@@ -262,7 +262,7 @@ void test_hash_table_iterating_remove(void)
 
 	/* Check counts */
 
-	assert(removed == 100);
+	assert(removed == 10);
 	assert(count == NUM_TEST_VALUES);
 
 	assert(hash_table_num_entries(hash_table)
@@ -273,7 +273,7 @@ void test_hash_table_iterating_remove(void)
 	for (i=0; i<NUM_TEST_VALUES; ++i) {
 		sprintf(buf, "%i", i);
 
-		if (i % 100 == 0) {
+		if (i % 10 == 0) {
 			assert(hash_table_lookup(hash_table, buf) == NULL);
 		} else {
 			assert(hash_table_lookup(hash_table, buf) != NULL);

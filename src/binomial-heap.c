@@ -137,7 +137,9 @@ static BinomialTree *binomial_tree_merge(BinomialHeap *heap,
 		free(new_tree);
 		return NULL;
 	}
-
+	
+	/*HSL: could cause undefined behavior as tree1->subtrees could be a null pointer */
+	
 	memcpy(new_tree->subtrees, tree1->subtrees,
 	       sizeof(BinomialTree *) * tree1->order);
 	new_tree->subtrees[new_tree->order - 1] = tree2;

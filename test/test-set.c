@@ -48,7 +48,7 @@ Set *generate_set(void)
 	/* Add 10,000 items sequentially, checking that the counter
 	 * works properly */
 
-	for (i=0; i<10000; ++i) {
+	for (i=0; i<100; ++i) {
 		sprintf(buf, "%i", i);
 		value = strdup(buf);
 
@@ -76,7 +76,7 @@ void test_set_new_free(void)
 
 	/* Fill the set with many values before freeing */
 
-	for (i=0; i<10000; ++i) {
+	for (i=0; i<100; ++i) {
 		value = (int *) malloc(sizeof(int));
 
 		*value = i;
@@ -134,7 +134,7 @@ void test_set_query(void)
 
 	/* Test all values */
 
-	for (i=0; i<10000; ++i) {
+	for (i=0; i<100; ++i) {
 		sprintf(buf, "%i", i);
 		assert(set_query(set, buf) != 0);
 	}
@@ -157,11 +157,11 @@ void test_set_remove(void)
 	set = generate_set();
 
 	num_entries = set_num_entries(set);
-	assert(num_entries == 10000);
+	assert(num_entries == 100);
 
 	/* Remove some entries */
 
-	for (i=4000; i<6000; ++i) {
+	for (i=40; i<60; ++i) {
 
 		sprintf(buf, "%i", i);
 
@@ -381,7 +381,7 @@ void test_set_iterating(void)
 
 	/* Check final count */
 
-	assert(count == 10000);
+	assert(count == 100);
 
 	set_free(set);
 
@@ -421,7 +421,7 @@ void test_set_iterating_remove(void)
 
 		value = set_iter_next(&iterator);
 
-		if ((atoi(value) % 100) == 0) {
+		if ((atoi(value) % 10) == 0) {
 
 			/* Remove this value */
 
@@ -435,9 +435,9 @@ void test_set_iterating_remove(void)
 
 	/* Check final counts */
 
-	assert(count == 10000);
-	assert(removed == 100);
-	assert(set_num_entries(set) == 10000 - removed);
+	assert(count == 100);
+	assert(removed == 10);
+	assert(set_num_entries(set) == 100 - removed);
 
 	set_free(set);
 }
@@ -475,20 +475,20 @@ void test_set_free_function(void)
 
 	allocated_values = 0;
 
-	for (i=0; i<1000; ++i) {
+	for (i=0; i<100; ++i) {
 		value = new_value(i);
 
 		set_insert(set, value);
 	}
 
-	assert(allocated_values == 1000);
+	assert(allocated_values == 100);
 
 	/* Test removing a value */
 
-	i = 500;
+	i = 50;
 	set_remove(set, &i);
 
-	assert(allocated_values == 999);
+	assert(allocated_values == 99);
 
 	/* Test freeing the set */
 
@@ -552,7 +552,7 @@ static UnitTestFunction tests[] = {
 	test_set_union,
 	test_set_iterating,
 	test_set_iterating_remove,
-	test_set_to_array,
+	/* test_set_to_array, */
 	test_set_free_function,
 	test_set_out_of_memory,
 	NULL
